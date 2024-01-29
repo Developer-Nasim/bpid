@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey BPIANS! Get Your ID from Here</title>
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --cardBg: #239aff
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body{
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 239, 239);
+    font-family: 'Kanit', sans-serif;
+    min-height: 100vh;
+
+ }
+ img{
+    max-width: 100%;
+ }
+ ul{
+    list-style:none;
+    padding: 0;
+ }
+ 
+ .card-wrap{ 
+    background-color: #fff;
+    padding: 15px;
+    min-width: 368px;
+    max-width: 368px;
+    min-height: 552px;
+    max-height: 552px; 
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+ }
+ .card-wrap::after{
+    content: "";
+    background-image: url(./logo.png);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    opacity: .1;
+ }
+ .card-wrap:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    background: var(--cardBg);
+    border-radius: 0 0 50% 50%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+ .card-header {
+    display: flex;
+    align-items: center;
+}
+
+.card-header img {
+    background-color: #fff;
+    min-width: 70px;
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.card-header h4 {
+    font-size: 20px;
+    color: #fff;
+} 
+
+.card-content > label {
+    display: block;
+    min-width: 140px;
+    max-width: 140px;
+    height: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 15px #2398ff3f); 
+    position: relative;
+}
+.card-content > label img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.card-content > label input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.card-content ul {
+    max-width: 300px;
+    margin: auto;
+}
+
+.card-content ul li {
+    display: flex;
+    align-items: baseline;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content ul li > b {
+    display: block;
+    min-width: 100px;
+    max-width: 100px;
+    position: relative;
+}
+
+.card-content ul li > span {
+    display: block;
+    width: 100%;
+}
+
+.card-content ul li > b:after {
+    content: ":";
+    position: absolute;
+    right: 15px;
+}
+.card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--cardBg);
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    background: #7eb523;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+button:last-child{
+    background: #000;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 15px;
+}
+
+
+
+
+.developed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    background: #fff;
+    transition: .2s;
+}
+
+.developed div {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    padding-right: 25px;
+}
+
+.developed div img {
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.developed div p {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.developed div p b {
+    display: block;
+}
+
+.developed.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+    </style>
+</head>
+<body>
+
+    <div class="main-card-wrap">
+        
+        <div class="card" id="myCard">
+            <div class="card-wrap">
+                <div class="card-header">
+                    <img src="./logo.png" alt="" />
+                    <h4>মধ্যনগর বিশ্বেশ্বরী পাবলিক উচ্চ বিদ্যালয় ও কলেজ</h4>
+                </div>
+                <div class="card-content">
+                    <label for="upload_photo">
+                        <img src="./avatar.jpg" alt="" class="profileImg">
+                        <input type="file" accept="*img" id="upload_photo">
+                    </label>
+                    <ul>
+                        <li>
+                            <b>নাম</b>
+                            <span contenteditable>Amiruzzaman Nasim</span>
+                        </li>
+                        <li>
+                            <b>শ্রেণি</b>
+                            <span contenteditable>12th</span>
+                        </li>
+                        <li>
+                            <b>রোল নং</b>
+                            <span contenteditable>47</span>
+                        </li>
+                        <li>
+                            <b>মোবাইল</b>
+                            <span contenteditable>+8801232434354</span>
+                        </li>  
+                    </ul>
+                </div>
+                <div class="card-bottom">
+                    <h4>ঠিকানাঃ মধ্যনগর বাজার, সুনামগঞ্জ, সিলেট</h4>
+                    <h4>এবং মেয়াদঃ <span contenteditable>২০২৫</span> পর্যন্ত</h4>
+                </div>
+            </div> 
+        </div>
+        <div class="btns">
+            <button type="button" id="btn" class="btn btn-default">Download</button> 
+        </div>
+    </div>
+
+    <div class="developed">
+        <div> 
+            <img src="./avatar.jpg" alt="" class="profileImg">
+            <p>Developed By: <b>Amiruzzaman Nasim</b></p>
+        </div>
+    </div>
+ 
+    <script src="./dom-to-image.js"></script>
+    <script> 
+        window.addEventListener('load', () => {
+
+            // Hide Overlay
+            const overlay = document.querySelector('.developed')
+            overlay.classList.add('hide')
+
+
+            // Upload Image
+            function UploadImg() {
+                
+                const inputFile = document.querySelector("#upload_photo");
+                const pictureImage = document.querySelector(".profileImg"); 
+
+                inputFile.addEventListener("change", function (e) {
+                const inputTarget = e.target;
+                const file = inputTarget.files[0];
+
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.addEventListener("load", function (e) {
+                            const readerTarget = e.target;
+                            pictureImage.src = readerTarget.result; 
+                        });
+
+                        reader.readAsDataURL(file);
+                    } 
+                });
+
+            }
+            UploadImg()
+
+            // download Id Card
+            function DownloadNow() { 
+                var ticket = document.getElementById("myCard")
+                var download_btn = document.getElementById("btn")
+                download_btn.addEventListener('click', () => {
+
+                    var theName = document.querySelector(".card-content ul li span")
+                    var getName = theName.textContent.trim().replace(/[^a-zA-Z ]/g, "")
+                    domtoimage.toPng(ticket).then((data) => {
+                        var link = document.createElement('a')
+                        link.download = getName+'.png'
+                        link.href= data
+                        link.click()
+                    })
+                })
+            }
+            DownloadNow()
+        
+        })
+    </script>
+</body>
+</html>
