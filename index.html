@@ -223,12 +223,14 @@ button:last-child{
     opacity: 0;
     visibility: hidden;
 }
+label, input{
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
 
-    <div class="main-card-wrap">
-        
+    <div class="main-card-wrap"> 
         <div class="card" id="myCard">
             <div class="card-wrap">
                 <div class="card-header">
@@ -238,7 +240,7 @@ button:last-child{
                 <div class="card-content">
                     <label for="upload_photo">
                         <img src="./avatar.png" alt="" class="profileImg">
-                        <input type="file" accept="*img" id="upload_photo">
+                        <input type="file" accept="image/*" id="upload_photo">
                     </label>
                     <ul>
                         <li>
@@ -261,10 +263,13 @@ button:last-child{
                 </div>
                 <div class="card-bottom">
                     <h4>ঠিকানাঃ মধ্যনগর বাজার, সুনামগঞ্জ, সিলেট</h4>
-                    <h4>এবং মেয়াদঃ <span contenteditable>২০২৫</span> পর্যন্ত</h4>
+                    <h4>এবং মেয়াদঃ <span class="theYear">2024</span> পর্যন্ত</h4>
                 </div>
             </div> 
         </div>
+
+        <div class="remove_img" style="margin-top: 10px;">Remove Background Image from <a href="//remove.bg" target="_blank">www.remove.bg</a></div>
+        
         <div class="btns">
             <button type="button" id="btn" class="btn btn-default">Download</button> 
         </div>
@@ -283,7 +288,22 @@ button:last-child{
 
             // Hide Overlay
             const overlay = document.querySelector('.developed')
+            const DateYear = document.querySelector('.theYear')
+
+            // Hide Overlay
             overlay.classList.add('hide')
+
+
+            // Show the date
+            function ChangeDate() { 
+                const d = new Date();
+                let year = d.getFullYear();
+                DateYear.innerHTML = convertToBanglaNumerals(year);
+            }
+            ChangeDate() 
+
+
+            
 
 
             // Upload Image
@@ -327,8 +347,30 @@ button:last-child{
                 })
             }
             DownloadNow()
-        
+            
+
+            
+
         })
-    </script>
+        
+
+        // Convering Date into Bengli formate
+        function convertToBanglaNumerals(number) {
+        const banglaNumerals = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+        const numberString = number.toString();
+        let banglaNumberString = '';
+
+        for (let i = 0; i < numberString.length; i++) {
+            const digit = parseInt(numberString[i]);
+            banglaNumberString += banglaNumerals[digit];
+        }
+
+        return banglaNumberString;
+        }
+
+
+
+
+    </script> 
 </body>
 </html>
